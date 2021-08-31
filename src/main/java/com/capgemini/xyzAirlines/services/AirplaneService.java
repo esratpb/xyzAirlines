@@ -16,4 +16,7 @@ public interface AirplaneService {
    public Optional<Airplane> getById(Integer id);
 
     public void deleteById(Integer id);
+
+
+    Airplane tanked(Integer id,Double tankedFuelAmount);
 }

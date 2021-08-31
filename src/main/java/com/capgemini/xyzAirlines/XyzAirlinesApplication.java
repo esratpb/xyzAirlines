@@ -38,5 +38,6 @@ public class XyzAirlinesApplication implements CommandLineRunner {
 		airplaneRepository.save(airplane2);
 
 		airplaneRepository.save(new Airplane(3,"Boeing 737 MAX8 – TC-LCA","Boeing","Ist",5,airport1));
+
 	}
 }

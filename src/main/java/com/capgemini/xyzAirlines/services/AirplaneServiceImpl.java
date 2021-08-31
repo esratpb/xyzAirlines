@@ -38,4 +38,13 @@ public class AirplaneServiceImpl implements AirplaneService {
     @Override
     public void deleteById(Integer id) { airplaneRepository.deleteById(id);  }
 
+    @Override
+    public Airplane tanked(Integer id, Double tankedFuelAmount) {
+        Airplane airplane=airplaneRepository.findById(id).get();
+
+        airplane.setFuel(airplane.getFuel()+tankedFuelAmount);
+
+        return updatedAirplane(airplane);
     }
+
+}

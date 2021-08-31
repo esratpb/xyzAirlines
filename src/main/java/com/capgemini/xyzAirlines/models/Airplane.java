@@ -10,8 +10,8 @@ public class Airplane {
     @GeneratedValue(generator = "native",strategy = GenerationType.AUTO)
     @GenericGenerator(name="native",strategy = "native")
     private int id;
-    private String idPlate;
-    private String typeOfAirplain;
+    private String idPlate;     //Airplane Identification Plate
+    private String typeOfAirplane;  //
     private String currentAirfield;
     private double fuel;
 
@@ -21,10 +21,10 @@ public class Airplane {
     public Airplane() {
     }
 
-    public Airplane(int id, String idPlate, String typeOfAirplain, String currentAirfield, double fuel, Airport airport) {
+    public Airplane(int id, String idPlate, String typeOfAirplane, String currentAirfield, double fuel, Airport airport) {
         this.id = id;
         this.idPlate = idPlate;
-        this.typeOfAirplain = typeOfAirplain;
+        this.typeOfAirplane = typeOfAirplane;
         this.currentAirfield = currentAirfield;
         this.fuel = fuel;
         this.airport = airport;
@@ -47,12 +47,12 @@ public class Airplane {
         this.idPlate = idPlate;
     }
 
-    public String getTypeOfAirplain() {
-        return typeOfAirplain;
+    public String getTypeOfAirplane() {
+        return typeOfAirplane;
     }
 
-    public void setTypeOfAirplain(String typeOfAirplain) {
-        this.typeOfAirplain = typeOfAirplain;
+    public void setTypeOfAirplane(String typeOfAirplane) {
+        this.typeOfAirplane = typeOfAirplane;
     }
 
     public String getCurrentAirfield() {

@@ -6,6 +6,7 @@ import com.capgemini.xyzAirlines.exceptions.NoIdOrTitle;
 import com.capgemini.xyzAirlines.models.Airplane;
 import com.capgemini.xyzAirlines.services.AirplaneService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class AirplaneController {
 
     @PostMapping
     public ResponseEntity<Airplane> saveAirplane(@RequestBody Airplane airplane){
-        System.out.println(airplane.toString());
+
         Airplane createdAirplane= airplaneService.save(airplane);
         return new ResponseEntity<Airplane>(createdAirplane,HttpStatus.OK);
     }
@@ -50,6 +51,17 @@ public class AirplaneController {
             throw new NoIdOrTitle();
         airplaneService.deleteById(id);
         return true;
+    }
+
+    @PutMapping("flying/{id}")
+    public ResponseEntity<Airplane> Tanked(@PathVariable(name="id")Integer id,@RequestBody Double tankedFuelAmount){
+        Optional<Airplane> optionalAirplane=airplaneService.getById(id);
+        if(optionalAirplane.isEmpty())
+            throw new NoIdOrTitle();
+
+        Airplane tankedAirplain =airplaneService.tanked(id,tankedFuelAmount);
+        return new ResponseEntity<Airplane>(tankedAirplain,HttpStatus.OK);
+
     }
 
 
